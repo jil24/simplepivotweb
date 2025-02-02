@@ -8,7 +8,8 @@ performpivotwider = function(){
   
   outputtable = inputtable.groupby(
       aq.not(key,value,drop)).pivot(
-        key, {valuestring: functionstring});
+          key, {valuestring: functionstring}, { sort: true }
+      );
   return outputtable;
   
 }
