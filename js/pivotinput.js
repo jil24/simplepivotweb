@@ -21,6 +21,13 @@ parseinputtab = function(){
                                       header: headerbool,
                                       autoType: false});
 
+  //now clean up any blank cells and replace them with empty strings
+  for (i=0; i < inputtable.columnNames().length; i++) {
+    impute_dict = {};
+    impute_dict[inputtable.columnNames()[i]] = () => "";
+    inputtable = inputtable.impute(impute_dict)
+  }
+
   refreshpagedtable("#inputpreview_table", inputtable);
   
   refreshcolumnoptions();
